@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MEDICATORIO</string>
+    <string name="lbl_user">Usuario</string>
+    <string name="lbl_password">Clave</string>
+    <string name="lbl_checkboxText">Mantener iniciada la sesión</string>
+    <string name="btn_accept">Aceptar</string>
+</resources>

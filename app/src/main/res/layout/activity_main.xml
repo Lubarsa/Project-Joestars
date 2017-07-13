@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="120dp"
+        android:layout_height="92dp"
+        android:src="@drawable/medicatorioicon"
+        android:layout_marginBottom="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvMedicatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="@string/app_name"/>
+
+    <EditText
+    android:id="@+id/etUser"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:hint="@string/lbl_user" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/lbl_password" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <CheckBox
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/lbl_checkboxText"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_accept"
+        android:onClick="ValidateUser"/>
+</LinearLayout>
