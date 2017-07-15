@@ -20,16 +20,17 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/timesetTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00:00"
             android:textSize="35sp"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/timesetBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time set" />
+            android:text="Time set"/>
 
 
 

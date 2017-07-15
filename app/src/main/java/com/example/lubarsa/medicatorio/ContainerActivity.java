@@ -57,4 +57,18 @@ public class ContainerActivity extends AppCompatActivity
         buttonPosition = "Second";
         fragmentTransaction.commit();
     }
+
+    public void ChangeToCareScreen(View view) {
+
+        UserCareFragment newCareFragment = new UserCareFragment();
+
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.FragmentLayoutContainer, newCareFragment, "First");
+        Fragment fragmentDelete = getFragmentManager().findFragmentByTag(buttonPosition);
+        fragmentTransaction.remove(fragmentDelete);
+        buttonPosition = "First";
+        fragmentTransaction.commit();
+    }
 }

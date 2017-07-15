@@ -1,12 +1,19 @@
 package com.example.lubarsa.medicatorio;
 
+import android.app.TimePickerDialog;
 import android.content.Context;
+import java.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.view.View.OnClickListener;
 
 
 /**
@@ -17,7 +24,7 @@ import android.view.ViewGroup;
  * Use the {@link AlarmsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AlarmsFragment extends Fragment {
+public class AlarmsFragment extends Fragment implements OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +35,12 @@ public class AlarmsFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    int hour;
+    int min;
+    TextView timesetText;
+
+
 
     public AlarmsFragment() {
         // Required empty public constructor
@@ -64,7 +77,38 @@ public class AlarmsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alarms, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_alarms,container,false);
+        Button timesetButton = (Button) view.findViewById(R.id.timesetBtn);
+        timesetButton.setOnClickListener(this);
+        timesetText = (TextView) view.findViewById(R.id.timesetTxt);
+        Log.e("E", "Holi");
+        return view;
+    }
+
+    @Override
+    public void onClick(View view){
+        Log.e("E1", "Holi1");
+        switch (view.getId()){
+
+            case R.id.timesetBtn:
+                Log.e("E2", "Holi2");
+                Calendar calendar = Calendar.getInstance();
+                hour = calendar.get(Calendar.HOUR);
+                min = calendar.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
+                        new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                        timesetText.setText(hourOfDay + ":" + minute);
+                    }
+
+                }, hour, min, false);
+                timePickerDialog.show();
+                break;
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,4 +149,14 @@ public class AlarmsFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    public void OpenTimePicker(View view){
+
+    }
+
+
+
+
+
+
 }

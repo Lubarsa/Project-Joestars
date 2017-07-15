@@ -17,7 +17,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cuidados"/>
+            android:text="Cuidados"
+            android:onClick="ChangeToCareScreen"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
