@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(userValidate.compareTo("Lubarsa")==0 && passwordValidate.compareTo("EO64")==0)
         {
-            Toast.makeText(getApplicationContext(), "Usuario válido", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, ContainerActivity.class);
+            startActivity(intent);
 
 
         }
