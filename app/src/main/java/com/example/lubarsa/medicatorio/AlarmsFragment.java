@@ -1,11 +1,8 @@
 package com.example.lubarsa.medicatorio;
-<<<<<<< HEAD
+
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-=======
-//.
->>>>>>> 7af3a9e336947f7cf5d225db4c21205633d90a2f
 import android.app.TimePickerDialog;
 import android.content.Context;
 import java.util.Calendar;
