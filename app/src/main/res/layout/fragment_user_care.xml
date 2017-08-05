@@ -21,7 +21,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/border"/>
+        android:background="@drawable/border"
+        android:text="Evitar alimentos o bebidas heladas."
+        android:textSize="15sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/border"/>
+        android:background="@drawable/border"
+        android:text="Evitar cambios de clima muy bruscos.\n Estar en un ambiente cálido."/>
 
 
 </LinearLayout>

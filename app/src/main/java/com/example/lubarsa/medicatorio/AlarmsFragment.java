@@ -123,8 +123,13 @@ public class AlarmsFragment extends Fragment implements OnClickListener, Adapter
         timesetButton.setOnClickListener(this);
         timesetText = (TextView) view.findViewById(R.id.timesetTxt);
         Log.e("E", "Holi");
+
+
+
         return view;
     }
+
+
 
     @Override
     public void onClick(View view){
