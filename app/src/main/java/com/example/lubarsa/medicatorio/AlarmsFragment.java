@@ -2,6 +2,7 @@ package com.example.lubarsa.medicatorio;
 
 
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -24,6 +25,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -51,12 +53,14 @@ public class AlarmsFragment extends Fragment implements OnClickListener, Adapter
     int hour;
     int min;
     EditText nameTxt;
+    EditText etDosis;
     TextView timesetText;
     Spinner typeSpinner;
     ArrayAdapter<String> typeArray;
     String[] typeOption = new String[]{"Tableta(s)", "Cápsula(s)", "Óvulo(s)", "Pomada", "Jarabe",
     "Crema"};
     TextView measureTxt;
+
 
     public String nameNotification;
     public String typeNotification;
@@ -109,6 +113,7 @@ public class AlarmsFragment extends Fragment implements OnClickListener, Adapter
         nameTxt = (EditText) view.findViewById(R.id.nameTxt);
         typeSpinner = (Spinner) view.findViewById(R.id.typeSpinner);
         typeSpinner.setOnItemSelectedListener(this);
+        etDosis = (EditText) view.findViewById(R.id.etDosis);
         typeArray = new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_spinner_item,
                 typeOption);
         typeSpinner.setAdapter(typeArray);
@@ -152,6 +157,7 @@ public class AlarmsFragment extends Fragment implements OnClickListener, Adapter
                 timePickerDialog.show();
                 break;
             case R.id.saveBtn:
+                Log.e("Error","PruebaAlarma");
                 nameNotification = nameTxt.getText().toString();
                 measureNotification = measureTxt.getText().toString();
                 PendingIntent pendingIntent;
@@ -168,12 +174,15 @@ public class AlarmsFragment extends Fragment implements OnClickListener, Adapter
                     calendaralarm.add(Calendar.DATE,1);
                 }
 
-                Intent myIntent = new Intent(view.getContext(), AlarmReceiver.class);
-                AlarmManager manager = (AlarmManager) view.getContext().getSystemService(Context.ALARM_SERVICE);
-                //pendingIntent = PendingIntent.getBroadcast(view.getContext(), 0, myIntent, 0);
 
-                manager.set(AlarmManager.RTC_WAKEUP,calendaralarm.getTimeInMillis(), PendingIntent.getBroadcast(
-                        view.getContext(), 1, myIntent,PendingIntent.FLAG_UPDATE_CURRENT));
+                Intent myIntent = new Intent(getActivity(), AlarmReceiver.class);
+                AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+                pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, myIntent, 0);
+                Log.e("Error","Help! D:");
+                Toast.makeText(getActivity(), "Entedemos que quieras recordar a qué hora tomar " + etDosis.getText() + " " +
+                        typeNotification + " del medicamento " + nameNotification +
+                        " pero eso solo está disponible en la versión PREMIUM :(", Toast.LENGTH_LONG).show();
+                manager.set(AlarmManager.RTC_WAKEUP,calendaralarm.getTimeInMillis(), pendingIntent);
 
                 break;
         }

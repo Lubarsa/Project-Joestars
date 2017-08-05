@@ -10,13 +10,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
+        Log.e("Error","Notificación");
         createNotification(context, AlarmsFragment.instance.nameNotification, AlarmsFragment
         .instance.typeNotification, AlarmsFragment.instance.measureNotification);
         Toast.makeText(context, "ALARM", Toast.LENGTH_LONG).show();

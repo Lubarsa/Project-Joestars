@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.icu.text.IDNA;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -106,8 +108,11 @@ public class LocationFragment extends Fragment implements OnClickListener{
         switch (v.getId()){
             case R.id.maps1Txt:
                 Log.e("Error","Probando");
-                Intent intent = new Intent(getActivity(), MapsActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getActivity(), MapsActivity.class);
+                //startActivity(intent);
+                Toast.makeText(getActivity(), "Vemos que tienes un: " + Build.MODEL + ", " +
+                                "lamentablemente esta función solo se encuentra disponible en Samsung Galaxy S8 :("
+                        , Toast.LENGTH_LONG).show();
                 break;
         }
     }
