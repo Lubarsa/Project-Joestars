@@ -11,4 +11,11 @@
     <string name="lbl_environment">Cuidados: Ambiente</string>
 
     <string name="lbl_medicamento">Nombre del medicamento</string>
+    <string name="lbl_type">Presentación:</string>
+    <string name="lbl_dosis">Dosis</string>
+    <string name="title_activity_maps_fragment">Map</string>
+    <string name="lbl_sede1">Sede Lima: \n Dirección: Av. Inca Garcilaso de la Vega 1420
+                                        \n Teléfono: 358-0100</string>
+    <string name="lbl_sede2">Sede San Borja: \n Dirección: Av. Guardia Civil 421 - 433
+                                            \n Teléfono: 412-4607</string>
 </resources>

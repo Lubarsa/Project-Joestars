@@ -71,4 +71,19 @@ public class ContainerActivity extends AppCompatActivity
         buttonPosition = "First";
         fragmentTransaction.commit();
     }
+
+
+    public void ChangeToLocationScreen(View view) {
+
+        LocationFragment newLocationFragment = new LocationFragment();
+
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.FragmentLayoutContainer, newLocationFragment, "Third");
+        Fragment fragmentDelete = getFragmentManager().findFragmentByTag(buttonPosition);
+        fragmentTransaction.remove(fragmentDelete);
+        buttonPosition = "Third";
+        fragmentTransaction.commit();
+    }
 }

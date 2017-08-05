@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ContainerActivity.class);
             startActivity(intent);
 
+            finish();
+
 
         }
         else
